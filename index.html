@@ -1671,13 +1671,14 @@ const CUSTOM_COLORS = {
   "H2O":   "#0173b2",
   "CO2":   "#de8f05",
   "CO":    "#029e73",
+  "AL2O3":  "#D3D3D3",
   "CH4":   "#d55e00",
   "C":     "#000000",
   "N2":    "#56b4e9",
   "UNKWN": "#000000",
   "Others":"#949494",
 };
-const STACK_ORDER = ["H2O","N2","CO2","CO","CH4","C","UNKWN","Others"];
+const STACK_ORDER = ["H2O","CO2","CO","N2","C","AL2O3","CH4","UNKWN","Others"];
 
 function hexToRgba(hex, a=1.0){
   const h = (hex || "#999999").replace("#","");
