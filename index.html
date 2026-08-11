@@ -1445,7 +1445,7 @@ function countShownLaunches() {
     const okLv = (lvSelVal === "All") || (L.lv_type === lvSelVal);
     const okMs = (msSelVal === "All") || (L.mission === msSelVal);
     const okSeg =
-      (segSelVal === "Both") ||
+      (segSelVal === "Ascent and Descent") ||
       (segSelVal === "Ascent only") ||
       (segSelVal === "Descent only" && L.has_descent);
     if (okLv && okMs && okSeg) shown++;
@@ -1954,7 +1954,7 @@ function computeAltitudeProfileForCurrentView() {
   const showExh = document.getElementById("toggleExhaust").checked;
   if (!showExh) return { alt_km: [], mass: [], unit: "t", unitPer: "", maxAlt: 0 };
 
-  const segSelVal = document.getElementById("segSel").value; // Both / Ascent only / Descent only
+  const segSelVal = document.getElementById("segSel").value; // Ascent and Descent / Ascent only / Descent only
   const idxs = selectedLaunchMask();
 
   const spSel = document.getElementById("speciesSel").value;
@@ -2382,7 +2382,7 @@ function applyTrajectoryFilters() {
     const okMs = (msSelVal === "All") || (ms === msSelVal);
 
     const okSeg =
-      (segSelVal === "Both") ||
+      (segSelVal === "Ascent and Descent") ||
       (segSelVal === "Ascent only" && !dashed) ||
       (segSelVal === "Descent only" && dashed);
 
@@ -2521,7 +2521,7 @@ function speciesSortedWithTotalFirst(speciesList) {
 setOptions(speciesSel, speciesSortedWithTotalFirst(EXH.species), EXH.default_species);
 setOptions(lvSel, ["All", ...TRAJ.lv_types], "All");
 setOptions(missionSel, ["All", ...TRAJ.missions], "All");
-setOptions(segSel, ["Both", "Ascent only", "Descent only"], "Both");
+setOptions(segSel, ["Ascent and Descent", "Ascent only", "Descent only"], "Both");
 
 // Time slider init
 (function initTimeSlider(){
