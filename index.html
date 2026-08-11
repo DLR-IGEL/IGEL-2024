@@ -411,9 +411,25 @@
       </ul>
 
       <p>
-        The visualization is provided by DLR and was created as part of the S3D-BETTER project.
-        If you have feedback, feature requests, or would like to contact us, please write to
-        <a href="mailto:igel@dlr.de">igel@dlr.de</a>.
+        The underlying inventory is available as the
+        <a
+          href="https://doi.org/10.5281/zenodo.21667787"
+          target="_blank"
+          rel="noopener noreferrer"
+        >IGEL 2024 dataset on Zenodo</a>.
+        A detailed description of the inventory and the methods used to create it is
+        provided in the
+        <a
+          href="https://www.researchsquare.com/article/rs-10615533/v1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >associated preprint</a>.
+      </p>
+
+      <p>
+        The visualization is provided by DLR and was created as part of the S3D-BETTER
+        project. If you have feedback, feature requests, or would like to contact us,
+        please write to <a href="mailto:igel@dlr.de">igel@dlr.de</a>.
       </p>
 
 
@@ -517,7 +533,7 @@
 
   <div id="rotateToggle">🌍 Rotation: OFF</div>
 
-  <div class="panel minimized" id="barBox" style="
+  <div class="panel " id="barBox" style="
     top: 50%;
     right: 10px;
     left: auto;
@@ -526,11 +542,11 @@
     max-width: 440px;
   ">
     <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
-      <div id="barTitle" class="titleText" style="font-weight:900;">Emissions Sum</div>
-      <div id="barToggleBtn" class="miniBtn">Plots</div>
+      <div id="barTitle" class="titleText" style="font-weight:900;">Emission Sum</div>
+      <div id="barToggleBtn" class="miniBtn">Hide</div>
     </div>
 
-    <div id="barContent" style="margin-top:8px; display:none;">
+    <div id="barContent" style="margin-top:8px; display:block;">
       <div class="muted" id="barSubtitle" style="margin-bottom:6px;"></div>
 
       <canvas id="speciesBarCanvas" style="
@@ -1122,7 +1138,7 @@ viewer.scene.globe.depthTestAgainstTerrain = false;
   if (barBox.classList.contains("minimized")) {
     if (barTitle) barTitle.textContent = "Plots";
   } else {
-    if (barTitle) barTitle.textContent = "Emissions Sum";
+    if (barTitle) barTitle.textContent = "Emission Sum";
   }
   if (barBox && barBtn && barContent) {
     barBtn.onclick = function() {
@@ -1132,7 +1148,7 @@ viewer.scene.globe.depthTestAgainstTerrain = false;
         barBox.classList.remove("minimized");
         barContent.style.display = "block";
         barBtn.textContent = "Hide";
-        if (barTitle) barTitle.textContent = "Emissions Sum";
+        if (barTitle) barTitle.textContent = "Emission Sum";
       } else {
         // minimize
         barContent.style.display = "none";
